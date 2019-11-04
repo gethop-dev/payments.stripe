@@ -15,11 +15,11 @@
 
 (deftest ^:integration create-plan
   (let [payments-adapter (ig/init-key :magnet.payments/stripe test-config)]
-    (testing "Create customer successfully"
+    (testing "Create plan successfully"
       (let [result (core/create-plan payments-adapter test-plan-data)]
         (is (:success? result))
         (is (map? (:plan result)))))
-    (testing "Create customer with missing required parameter"
+    (testing "Create plan with missing required parameter"
       (let [result (core/create-plan payments-adapter (dissoc test-plan-data :interval))]
         (is (not (:success? result)))
         (is (= :bad-request (:reason result)))))))

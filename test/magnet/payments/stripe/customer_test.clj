@@ -24,7 +24,7 @@
             result (core/get-customer payments-adapter customer-id)]
         (is (:success? result))
         (is (map? (:customer result)))))
-    (testing "Wrong charge-id"
+    (testing "Wrong customer-id"
       (let [result (core/get-customer payments-adapter (str (UUID/randomUUID)))]
         (is (not (:success? result)))
         (is (= :not-found (:reason result)))))))

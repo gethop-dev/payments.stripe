@@ -33,7 +33,7 @@
 
 (deftest ^:integration get-all-charges
   (let [payments-adapter (ig/init-key :magnet.payments/stripe test-config)]
-    (testing "Get balance successfully"
+    (testing "Get charges successfully"
       (let [result (core/get-all-charges payments-adapter {})]
         (is (:success? result))
         (is (vector? (:charges result)))))))

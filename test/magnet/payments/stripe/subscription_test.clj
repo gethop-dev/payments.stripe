@@ -41,7 +41,7 @@
             result (core/get-subscription payments-adapter subscription-id)]
         (is (:success? result))
         (is (map? (:subscription result)))))
-    (testing "Wrong charge-id"
+    (testing "Wrong subscription-id"
       (let [result (core/get-subscription payments-adapter (str (UUID/randomUUID)))]
         (is (not (:success? result)))
         (is (= :not-found (:reason result)))))))
