@@ -37,13 +37,13 @@ Key initialization returns a `Stripe` record that can be used to perform the Str
 #### Configuration example
 Basic configuration:
 ```edn
-  :magnet.paymets/stripe
+  :magnet.payments/stripe
    {:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]}
 ```
 
 Configuration with custom request retry policy:
 ```edn
-  :magnet.paymets/stripe
+  :magnet.payments/stripe
    {:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]
     :timeout 300
     :max-retries 5
