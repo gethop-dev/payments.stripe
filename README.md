@@ -45,8 +45,8 @@ Configuration with custom request retry policy:
 ```edn
   :magnet.payments/stripe
    {:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]
-    :timeout 300
-    :max-retries 5
+    :timeout 1000
+    :max-retries 3
     :backoff-ms [10 500]}
 ```
 
