@@ -4,9 +4,9 @@
 
 (ns magnet.payments.stripe
   (:require [integrant.core :as ig]
-            [magnet.payments.stripe.connector :as connector]
             [magnet.payments.stripe.balance]
             [magnet.payments.stripe.charge]
+            [magnet.payments.stripe.core :as core]
             [magnet.payments.stripe.customer]
             [magnet.payments.stripe.plan]
             [magnet.payments.stripe.subscription]))
@@ -36,4 +36,4 @@
                                                    :or {timeout default-timeout
                                                         max-retries default-max-retries
                                                         backoff-ms default-backoff-ms}}]
-  (connector/->Stripe api-key timeout max-retries backoff-ms))
+  (core/->Stripe api-key timeout max-retries backoff-ms))

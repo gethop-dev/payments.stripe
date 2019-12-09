@@ -4,12 +4,8 @@
 
 (ns magnet.payments.util
   (:require [clojure.data.json :as json]
-            [clojure.walk :as walk]
             [diehard.core :as dh]
             [org.httpkit.client :as http]))
-
-(def ^:const stripe-api-url "https://api.stripe.com")
-(def ^:const api-version "/v1")
 
 (def ^:const gateway-timeout
   "504 Gateway timeout The server, while acting as a gateway or proxy,
@@ -51,20 +47,10 @@
     (= code 404) :not-found
     :else :error))
 
-(defn default-response [{:keys [status body]} entity-key]
-  (if (= status 200)
-    {:success? true
-     entity-key body}
-    {:success? false
-     :reason (default-status-codes status)
-     :error-details body}))
-
 (defn do-request [{:keys [api-key timeout max-retries backoff-ms]} req-args]
   (let [req (-> req-args
                 (assoc :oauth-token api-key
-                       :timeout timeout)
-                (update :url #(str stripe-api-url api-version %))
-                (update :form-params #(when % (walk/stringify-keys %))))]
+                       :timeout timeout))]
     (dh/with-retry {:policy (retry-policy max-retries backoff-ms)
                     :fallback fallback}
       (let [{:keys [status body error] :as resp} @(http/request req)]

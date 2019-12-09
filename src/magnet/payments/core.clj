@@ -5,7 +5,9 @@
 (ns magnet.payments.core)
 
 (defprotocol Balance
-  (get-balance [this])
+  (get-balance [this]))
+
+(defprotocol BalanceTransaction
   (get-balance-transaction [this bt-id])
   (get-all-balance-transactions [this opt-args]))
 
