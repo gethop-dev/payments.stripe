@@ -5,6 +5,7 @@
 (ns magnet.payments.stripe
   (:require [integrant.core :as ig]
             [magnet.payments.stripe.balance]
+            [magnet.payments.stripe.balance-transaction]
             [magnet.payments.stripe.charge]
             [magnet.payments.stripe.core :as core]
             [magnet.payments.stripe.customer]
