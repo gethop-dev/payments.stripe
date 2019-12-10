@@ -1,4 +1,4 @@
-(defproject magnet/payments.stripe "0.1.1-SNAPSHOT"
+(defproject magnet/payments.stripe "0.2.0"
   :description "A Duct library for interacting with the Stripe API"
   :url "http://github.com/magnetcoop/payments.stripe"
   :license {:name "Mozilla Public License 2.0"
