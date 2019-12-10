@@ -40,7 +40,7 @@
         (is (not (:success? result)))
         (is (= :not-found (:reason result)))))))
 
-(deftest ^:integration update-pan
+(deftest ^:integration update-plan
   (let [payments-adapter (ig/init-key :magnet.payments/stripe test-config)]
     (testing "Update plan successfully"
       (let [plan-id (-> (core/create-plan payments-adapter test-plan-data) :plan :id)

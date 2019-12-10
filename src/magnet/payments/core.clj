@@ -11,6 +11,13 @@
   (get-balance-transaction [this bt-id])
   (get-all-balance-transactions [this opt-args]))
 
+(defprotocol Card
+  (create-card [this customer-id card])
+  (get-card [this customer-id card-id])
+  (get-all-cards [this customer-id opt-args])
+  (update-card [this customer-id card-id card])
+  (delete-card [this customer-id card-id]))
+
 (defprotocol Charge
   (create-charge [this charge])
   (get-charge [this charge-id])
@@ -23,6 +30,19 @@
   (get-all-customers [this opt-args])
   (update-customer [this customer-id customer])
   (delete-customer [this customer-id]))
+
+(defprotocol Invoice
+  (create-invoice [this invoice])
+  (get-invoice [this invoice-id])
+  (get-all-invoices [this opt-args])
+  (update-invoice [this invoice-id invoice]))
+
+(defprotocol Product
+  (create-product [this product])
+  (get-product [this product-id])
+  (get-all-products [this opt-args])
+  (update-product [this product-id product])
+  (delete-product [this product-id]))
 
 (defprotocol Plans
   (create-plan [this plan])
