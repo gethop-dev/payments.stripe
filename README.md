@@ -145,6 +145,8 @@ This are the methods available to interact with the Stripe API. The mapping for 
     * [(get-all-subscriptions stripe-record opt-args)](https://stripe.com/docs/api/subscriptions/list)
     * [(update-subscription stripe-record subscription-id subscription)](https://stripe.com/docs/api/subscriptions/update)
     * [(cancel-subscription stripe-record subscription-id)](https://stripe.com/docs/api/subscriptions/cancel)
+  * [Checkout Session](https://stripe.com/docs/api/checkout/sessions)
+    * [(create-checkout-sessio stripe-record checkout-session)](https://stripe.com/docs/api/checkout/sessions/create)
 
 All the responses will include a `:success?` key. When `:success?` is `false`, `:reason` and `error-details` keys will be also included. The possible reasons are: `:bad-request`, `not-found`, `access-denied` and `error`. The `error-details` will include a map with the error information provided by the Stripe API.
 
