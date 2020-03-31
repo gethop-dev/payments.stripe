@@ -13,7 +13,8 @@
             [magnet.payments.stripe.invoice]
             [magnet.payments.stripe.plan]
             [magnet.payments.stripe.product]
-            [magnet.payments.stripe.subscription]))
+            [magnet.payments.stripe.subscription]
+            [magnet.payments.stripe.checkout]))
 
 (def ^:const default-timeout
   "Default timeout value for an connection attempt with Stripe API."

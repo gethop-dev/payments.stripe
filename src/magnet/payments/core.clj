@@ -57,3 +57,6 @@
   (get-all-subscriptions [this opt-args])
   (update-subscription [this subscription-id subscription])
   (cancel-subscription [this subscription-id]))
+
+(defprotocol Checkout
+  (create-checkout-session [this checkout-session]))
