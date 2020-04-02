@@ -60,3 +60,6 @@
 
 (defprotocol Checkout
   (create-checkout-session [this checkout-session]))
+
+(defprotocol Events
+  (list-events [this event-types opts-args]))
