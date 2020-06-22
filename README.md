@@ -31,6 +31,7 @@ These are the optional keys:
 * `:timeout`: Timeout value (in milli-seconds) for an connection attempt with Stripe.
 * `:max-retries`: If the connection attempt fails, how many retries we want to attempt before giving up.
 * `:backoff-ms`: This is a vector in the form [initial-delay-ms max-delay-ms multiplier] to control the delay between each retry. The delay for nth retry will be (max (* initial-delay-ms n multiplier) max-delay-ms). If multiplier is not specified (or if it is nil), a multiplier of 2 is used. All times are in milli-seconds.
+* `:webhook-tolerance` : Used when verifying webhook headers. Maximum difference in seconds allowed between the header's timestamp and the current time. Default value is 300 seconds.
 
 Key initialization returns a `Stripe` record that can be used to perform the Stripe operations described below.
 
@@ -149,7 +150,9 @@ This are the methods available to interact with the Stripe API. The mapping for 
     * [(create-checkout-sessio stripe-record checkout-session)](https://stripe.com/docs/api/checkout/sessions/create)
   * [Events](https://stripe.com/docs/api/events)
     * [(list-events stripe-record event-types opt-args)](https://stripe.com/docs/api/events/list)
-
+  * [Webhook](https://stripe.com/docs/api/webhooks)
+    * [(verify-header stripe-record payload signature-header secret)](https://stripe.dev/stripe-java/com/stripe/net/Webhook.Signature.html)
+    
 All the responses will include a `:success?` key. When `:success?` is `false`, `:reason` and `error-details` keys will be also included. The possible reasons are: `:bad-request`, `not-found`, `access-denied` and `error`. The `error-details` will include a map with the error information provided by the Stripe API.
 
 ## License
