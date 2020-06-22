@@ -8,7 +8,7 @@
 
 (def ^:const api-version "v1")
 
-(defrecord Stripe [api-key timeout max-retries backoff-ms])
+(defrecord Stripe [api-key timeout max-retries backoff-ms webhook-tolerance])
 
 (s/def ::stripe-record record?)
 

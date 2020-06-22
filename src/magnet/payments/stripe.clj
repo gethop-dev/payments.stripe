@@ -15,7 +15,8 @@
             [magnet.payments.stripe.invoice]
             [magnet.payments.stripe.plan]
             [magnet.payments.stripe.product]
-            [magnet.payments.stripe.subscription]))
+            [magnet.payments.stripe.subscription]
+            [magnet.payments.stripe.webhook]))
 
 (def ^:const default-timeout
   "Default timeout value for an connection attempt with Stripe API."
@@ -38,8 +39,16 @@
 (def ^:const default-backoff-ms
   [default-initial-delay default-max-delay 2.0])
 
-(defmethod ig/init-key :magnet.payments/stripe [_ {:keys [api-key timeout max-retries backoff-ms]
-                                                   :or {timeout default-timeout
-                                                        max-retries default-max-retries
-                                                        backoff-ms default-backoff-ms}}]
-  (core/->Stripe api-key timeout max-retries backoff-ms))
+(def ^:const default-webhook-tolerance
+  "Used when verifying webhook headers.
+  Maximum difference in seconds allowed between the header's
+  timestamp and the current time."
+  300)
+
+(defmethod ig/init-key :magnet.payments/stripe
+  [_ {:keys [api-key timeout max-retries backoff-ms webhook-tolerance]
+      :or {timeout default-timeout
+           max-retries default-max-retries
+           backoff-ms default-backoff-ms
+           webhook-tolerance default-webhook-tolerance}}]
+  (core/->Stripe api-key timeout max-retries backoff-ms webhook-tolerance))

@@ -63,3 +63,6 @@
 
 (defprotocol Events
   (list-events [this event-types opts-args]))
+
+(defprotocol Webhook
+  (verify-header [this payload signature-header secret]))

@@ -8,7 +8,8 @@
                  [integrant "0.8.0"]
                  [http-kit "2.3.0"]
                  [diehard "0.9.4"]
-                 [org.clojure/data.json "1.0.0"]]
+                 [org.clojure/data.json "1.0.0"]
+                 [com.stripe/stripe-java "19.23.0"]]
   :deploy-repositories [["snapshots" {:url "https://clojars.org/repo"
                                       :username :env/clojars_username
                                       :password :env/clojars_password
