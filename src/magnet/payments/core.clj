@@ -64,6 +64,10 @@
   (attach-payment-method [this payment-method-id customer-id])
   (detach-payment-method [this payment-method-id]))
 
+(defprotocol UsageRecord
+  (create-usage-record [this subscription-item-id usage-record])
+  (get-usage-record-summaries [this subscription-item-id opt-args]))
+
 (defprotocol Checkout
   (create-checkout-session [this checkout-session]))
 

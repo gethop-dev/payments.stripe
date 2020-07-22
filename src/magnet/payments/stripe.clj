@@ -17,6 +17,7 @@
             [magnet.payments.stripe.plan]
             [magnet.payments.stripe.product]
             [magnet.payments.stripe.subscription]
+            [magnet.payments.stripe.usage-record]
             [magnet.payments.stripe.webhook]))
 
 (def ^:const default-timeout
