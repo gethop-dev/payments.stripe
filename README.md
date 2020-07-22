@@ -146,13 +146,21 @@ This are the methods available to interact with the Stripe API. The mapping for 
     * [(get-all-subscriptions stripe-record opt-args)](https://stripe.com/docs/api/subscriptions/list)
     * [(update-subscription stripe-record subscription-id subscription)](https://stripe.com/docs/api/subscriptions/update)
     * [(cancel-subscription stripe-record subscription-id)](https://stripe.com/docs/api/subscriptions/cancel)
+  * [PaymentMethod](https://stripe.com/docs/api/payment_methods)
+    * [(get-payment-method stripe-record payment-method-id)](https://stripe.com/docs/api/payment_methods/retrieve)
+    * [(get-customer-payment-methods stripe-record customer-id payment-method-id opt-args)](https://stripe.com/docs/api/payment_methods/list)
+    * [(attach-payment-method stripe-record payment-method-id customer-id)](https://stripe.com/docs/api/payment_methods/attach)
+    * [(detach-payment-method stripe-record payment-method-id)](https://stripe.com/docs/api/payment_methods/detach)
+  * [UsageRecord](https://stripe.com/docs/api/usage_records)
+    * [(create-usage-record stripe-record subscription-item-id usage-record)](https://stripe.com/docs/api/usage_records/create)
+    * [(get-usage-record-summaries stripe-record subscription-item-id opt-args)](https://stripe.com/docs/api/usage_records/subscription_item_summary_list)
   * [Checkout Session](https://stripe.com/docs/api/checkout/sessions)
     * [(create-checkout-sessio stripe-record checkout-session)](https://stripe.com/docs/api/checkout/sessions/create)
   * [Events](https://stripe.com/docs/api/events)
     * [(list-events stripe-record event-types opt-args)](https://stripe.com/docs/api/events/list)
   * [Webhook](https://stripe.com/docs/api/webhooks)
     * [(verify-header stripe-record payload signature-header secret)](https://stripe.dev/stripe-java/com/stripe/net/Webhook.Signature.html)
-    
+
 All the responses will include a `:success?` key. When `:success?` is `false`, `:reason` and `error-details` keys will be also included. The possible reasons are: `:bad-request`, `not-found`, `access-denied` and `error`. The `error-details` will include a map with the error information provided by the Stripe API.
 
 ## License
