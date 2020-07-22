@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## 0.3.3 - 2020-07-22
+## Added
+- Add support for Payment Methods API
+- Add support for Usage Record API
+## Changed
+- Add .eastwood to .gitignore
+
 ## 0.3.2 - 2020-06-22
 ## Added
 - Add support for verifying webhook headers
