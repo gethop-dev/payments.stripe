@@ -4,6 +4,7 @@
 profiles.clj
 pom.xml
 pom.xml.asc
+.eastwood
 *.jar
 *.class
 /.lein-*
