@@ -58,6 +58,12 @@
   (update-subscription [this subscription-id subscription])
   (cancel-subscription [this subscription-id]))
 
+(defprotocol PaymentMethod
+  (get-payment-method [this payment-method-id])
+  (get-customer-payment-methods [this customer-id payment-method-type opt-args])
+  (attach-payment-method [this payment-method-id customer-id])
+  (detach-payment-method [this payment-method-id]))
+
 (defprotocol Checkout
   (create-checkout-session [this checkout-session]))
 
