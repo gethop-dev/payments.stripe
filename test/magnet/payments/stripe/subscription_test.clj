@@ -67,11 +67,11 @@
   (let [payments-adapter (ig/init-key :magnet.payments/stripe test-config)]
     (testing "Delete subscription successfully"
       (let [subscription-id (-> (core/create-subscription payments-adapter (get-test-subscription-data)) :subscription :id)
-            result (core/cancel-subscription payments-adapter subscription-id)]
+            result (core/cancel-subscription payments-adapter subscription-id {})]
         (is (:success? result))
         (is (map? (:subscription-canceled result)))))
     (testing "Delete non existing subscription"
-      (let [result (core/cancel-subscription payments-adapter (str (UUID/randomUUID)))]
+      (let [result (core/cancel-subscription payments-adapter (str (UUID/randomUUID)) {})]
         (is (not (:success? result)))
         (is (= :not-found (:reason result)))))))
 
