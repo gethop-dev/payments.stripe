@@ -15,6 +15,9 @@
    :get-all {:method :get
              :url "/invoices"
              :response [:invoices [:body :data]]}
+   :get-by {:method :get
+            :url #(str "/invoices/upcoming?customer=" %)
+            :response [:invoice :body]}
    :create {:method :post
             :url "/invoices"
             :response [:invoice :body]}
@@ -30,6 +33,9 @@
     (execute this (:get api-definition) {:path-params [invoice-id]}))
   (get-all-invoices [this opt-args]
     (execute this (:get-all api-definition) {:opt-req-args opt-args}))
+  (get-upcoming-invoice [this customer-id opt-args]
+    (execute this (:get-by api-definition) {:path-params [customer-id]
+                                            :opt-req-args opt-args}))
   (update-invoice [this invoice-id invoice]
     (execute this (:update api-definition) {:entity invoice
                                             :path-params [invoice-id]})))

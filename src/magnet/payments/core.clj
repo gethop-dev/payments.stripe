@@ -35,6 +35,7 @@
   (create-invoice [this invoice])
   (get-invoice [this invoice-id])
   (get-all-invoices [this opt-args])
+  (get-upcoming-invoice [this customer-id opt-args])
   (update-invoice [this invoice-id invoice]))
 
 (defprotocol Product
