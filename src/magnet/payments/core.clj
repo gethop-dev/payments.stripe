@@ -57,7 +57,7 @@
   (get-subscription [this subscription-id])
   (get-all-subscriptions [this opt-args])
   (update-subscription [this subscription-id subscription])
-  (cancel-subscription [this subscription-id]))
+  (cancel-subscription [this subscription-id opt-args]))
 
 (defprotocol PaymentMethod
   (get-payment-method [this payment-method-id])

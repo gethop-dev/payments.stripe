@@ -34,8 +34,9 @@
     (execute this (:get api-definition) {:path-params [subscription-id]}))
   (get-all-subscriptions [this opt-args]
     (execute this (:get-all api-definition) {:opt-req-args opt-args}))
-  (cancel-subscription [this subscription-id]
-    (execute this (:cancel api-definition) {:path-params [subscription-id]}))
+  (cancel-subscription [this subscription-id opt-args]
+    (execute this (:cancel api-definition) {:path-params [subscription-id]
+                                            :opt-req-args opt-args}))
   (update-subscription [this subscription-id subscription]
     (execute this (:update api-definition) {:entity subscription
                                             :path-params [subscription-id]})))
