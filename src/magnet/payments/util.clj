@@ -5,7 +5,8 @@
 (ns magnet.payments.util
   (:require [clojure.data.json :as json]
             [diehard.core :as dh]
-            [org.httpkit.client :as http]))
+            [org.httpkit.client :as http])
+  (:import [java.util UUID]))
 
 (def ^:const gateway-timeout
   "504 Gateway timeout The server, while acting as a gateway or proxy,
@@ -47,10 +48,14 @@
     (= code 404) :not-found
     :else :error))
 
-(defn do-request [{:keys [api-key timeout max-retries backoff-ms]} req-args]
-  (let [req (-> req-args
-                (assoc :oauth-token api-key
-                       :timeout timeout))]
+(defn do-request [{:keys [api-key timeout max-retries backoff-ms idempotent-post-reqs?]} req-args]
+  (let [req (cond-> req-args
+              (and idempotent-post-reqs? (= :post (:method req-args)))
+              (assoc-in [:headers "Idempotency-Key"] (str (UUID/randomUUID)))
+
+              true
+              (assoc :oauth-token api-key
+                     :timeout timeout))]
     (dh/with-retry {:policy (retry-policy max-retries backoff-ms)
                     :fallback fallback}
       (let [{:keys [status body error] :as resp} @(http/request req)]

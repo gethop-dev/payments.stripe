@@ -47,10 +47,17 @@
   timestamp and the current time."
   300)
 
+(def ^:const default-idempotent-post-reqs?
+  "Specifies whether to use idempotent keys in POST requests. All
+  Stripe's POST requests support idempotent keys. GET and DELETE
+  methods are idempotent by default."
+  true)
+
 (defmethod ig/init-key :magnet.payments/stripe
-  [_ {:keys [api-key timeout max-retries backoff-ms webhook-tolerance]
+  [_ {:keys [api-key timeout max-retries backoff-ms webhook-tolerance idempotent-post-reqs?]
       :or {timeout default-timeout
            max-retries default-max-retries
            backoff-ms default-backoff-ms
-           webhook-tolerance default-webhook-tolerance}}]
-  (core/->Stripe api-key timeout max-retries backoff-ms webhook-tolerance))
+           webhook-tolerance default-webhook-tolerance
+           idempotent-post-reqs? default-idempotent-post-reqs?}}]
+  (core/->Stripe api-key timeout max-retries backoff-ms webhook-tolerance idempotent-post-reqs?))
