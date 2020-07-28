@@ -32,6 +32,7 @@ These are the optional keys:
 * `:max-retries`: If the connection attempt fails, how many retries we want to attempt before giving up.
 * `:backoff-ms`: This is a vector in the form [initial-delay-ms max-delay-ms multiplier] to control the delay between each retry. The delay for nth retry will be (max (* initial-delay-ms n multiplier) max-delay-ms). If multiplier is not specified (or if it is nil), a multiplier of 2 is used. All times are in milli-seconds.
 * `:webhook-tolerance` : Used when verifying webhook headers. Maximum difference in seconds allowed between the header's timestamp and the current time. Default value is 300 seconds.
+* `:idempotent-post-reqs?`: Boolean value that determines whether idempotency keys should be used in POST requests or not. The default value is `true`.
 
 Key initialization returns a `Stripe` record that can be used to perform the Stripe operations described below.
 
