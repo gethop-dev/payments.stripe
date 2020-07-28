@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## 0.3.4 - 2020-07-28
+## Added
+- Use idempotency keys in POST requests.
+  - This is a configurable option.
+- Add method to retrieve upcoming invoices
+## Changed
+- Add support for optional params to cancel-subscription method
+
 ## 0.3.3 - 2020-07-22
 ## Added
 - Add support for Payment Methods API
