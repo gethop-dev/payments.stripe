@@ -13,6 +13,7 @@
             [magnet.payments.stripe.customer]
             [magnet.payments.stripe.event]
             [magnet.payments.stripe.invoice]
+            [magnet.payments.stripe.payment-intent]
             [magnet.payments.stripe.payment-method]
             [magnet.payments.stripe.plan]
             [magnet.payments.stripe.product]

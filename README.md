@@ -73,7 +73,7 @@ user> (def config {:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQa
 user>
 ```
 
-Now that we have all pieces in place, we can initialize the `:magnet.paymets/stripe` Integrant key to get a `Stripe` record. As we are doing all this from the REPL, we have to manually require `magnet.payments.stripe` namespace, where the `init-key` multimethod for that key is defined (this is not needed when Duct takes care of initializing the key as part of the application start up):
+Now that we have all pieces in place, we can initialize the `:magnet.payments/stripe` Integrant key to get a `Stripe` record. As we are doing all this from the REPL, we have to manually require `magnet.payments.stripe` namespace, where the `init-key` multimethod for that key is defined (this is not needed when Duct takes care of initializing the key as part of the application start up):
 
 ``` clj
 user> (require '[magnet.payments.stripe :as stripe])
@@ -86,7 +86,7 @@ And we finally initialize the key with the configuration defined above, to get o
 ``` clj
 user> (def stripe-record (->
                        config
-                       (->> (ig/init-key :magnet.paymets/stripe))))
+                       (->> (ig/init-key :magnet.payments/stripe))))
 #'user/stripe-record
 user> stripe-record
 #magnet.payments.stripe.Stripe{:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]
@@ -156,11 +156,19 @@ This are the methods available to interact with the Stripe API. The mapping for 
     * [(create-usage-record stripe-record subscription-item-id usage-record)](https://stripe.com/docs/api/usage_records/create)
     * [(get-usage-record-summaries stripe-record subscription-item-id opt-args)](https://stripe.com/docs/api/usage_records/subscription_item_summary_list)
   * [Checkout Session](https://stripe.com/docs/api/checkout/sessions)
-    * [(create-checkout-sessio stripe-record checkout-session)](https://stripe.com/docs/api/checkout/sessions/create)
+    * [(create-checkout-session stripe-record checkout-session)](https://stripe.com/docs/api/checkout/sessions/create)
   * [Events](https://stripe.com/docs/api/events)
     * [(list-events stripe-record event-types opt-args)](https://stripe.com/docs/api/events/list)
   * [Webhook](https://stripe.com/docs/api/webhooks)
     * [(verify-header stripe-record payload signature-header secret)](https://stripe.dev/stripe-java/com/stripe/net/Webhook.Signature.html)
+  * [PaymentIntents](https://stripe.com/docs/api/payment_intents)
+    * [(create-payment-intent [this payment-intent])](https://stripe.com/docs/api/payment_intents#create_payment_intent)
+    * [(get-all-payment-intents [this opt-args])](https://stripe.com/docs/api/payment_intents#list_payment_intents)
+    * [(get-payment-intent [this payment-intent-id])](https://stripe.com/docs/api/payment_intents#retrieve_payment_intent)
+    * [(update-payment-intent [this payment-intent-id payment-intent])](https://stripe.com/docs/api/payment_intents#update_payment_intent)
+    * [(confirm-payment-intent [this payment-intent-id opt-args])](https://stripe.com/docs/api/payment_intents#confirm_payment_intent)
+    * [(capture-payment-intent [this payment-intent-id opt-args])](https://stripe.com/docs/api/payment_intents#capture_payment_intent)
+    * [(cancel-payment-intent [this payment-intent-id opt-args])](https://stripe.com/docs/api/payment_intents#cancel_payment_intent)
 
 All the responses will include a `:success?` key. When `:success?` is `false`, `:reason` and `error-details` keys will be also included. The possible reasons are: `:bad-request`, `not-found`, `access-denied` and `error`. The `error-details` will include a map with the error information provided by the Stripe API.
 
