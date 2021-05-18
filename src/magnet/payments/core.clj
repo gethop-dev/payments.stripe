@@ -80,3 +80,12 @@
 
 (defprotocol Webhook
   (verify-header [this payload signature-header secret]))
+
+(defprotocol PaymentIntents
+  (create-payment-intent [this payment-intent])
+  (get-all-payment-intents [this opt-args])
+  (get-payment-intent [this payment-intent-id])
+  (update-payment-intent [this payment-intent-id payment-intent])
+  (confirm-payment-intent [this payment-intent-id opt-args])
+  (capture-payment-intent [this payment-intent-id opt-args])
+  (cancel-payment-intent [this payment-intent-id opt-args]))
