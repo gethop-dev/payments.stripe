@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## 0.3.5 - 2021-05-19
+## Added
+- Add support for managing Tax IDs in Customer API
+- Add support for PaymentIntents API ([Pull Request #11](https://github.com/magnetcoop/payments.stripe/pull/11))
+
 ## 0.3.4 - 2020-07-28
 ## Added
 - Use idempotency keys in POST requests.
