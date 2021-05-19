@@ -24,7 +24,16 @@
             :response [:customer :body]}
    :delete {:method :delete
             :url #(str "/customers/" %)
-            :response [:customer-deleted :body]}})
+            :response [:customer-deleted :body]}
+   :get-tax-id {:method :get
+                :url #(str "/customers/" %1 "/tax_ids/" %2)
+                :response [:tax-id :body]}
+   :create-tax-id {:method :post
+                   :url #(str "/customers/" % "/tax_ids")
+                   :response [:tax-id :body]}
+   :delete-tax-id {:method :delete
+                   :url #(str "/customers/" %1 "/tax_ids/" %2)
+                   :response [:deleted-tax-id :body]}})
 
 (extend-protocol core/Customers
   Stripe
@@ -38,4 +47,11 @@
     (execute this (:delete api-definition) {:path-params [customer-id]}))
   (update-customer [this customer-id customer]
     (execute this (:update api-definition) {:path-params [customer-id]
-                                            :entity customer})))
+                                            :entity customer}))
+  (get-customer-tax-id [this customer-id tax-id]
+    (execute this (:get-tax-id api-definition) {:path-params [customer-id tax-id]}))
+  (create-customer-tax-id [this customer-id tax-id]
+    (execute this (:create-tax-id api-definition) {:path-params [customer-id]
+                                                   :entity tax-id}))
+  (delete-customer-tax-id [this customer-id tax-id]
+    (execute this (:delete-tax-id api-definition) {:path-params [customer-id tax-id]})))

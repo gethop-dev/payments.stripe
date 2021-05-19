@@ -29,7 +29,10 @@
   (get-customer [this customer-id])
   (get-all-customers [this opt-args])
   (update-customer [this customer-id customer])
-  (delete-customer [this customer-id]))
+  (delete-customer [this customer-id])
+  (get-customer-tax-id [this customer-id tax-id])
+  (create-customer-tax-id [this customer-id tax-id])
+  (delete-customer-tax-id [this customer-id tax-id]))
 
 (defprotocol Invoice
   (create-invoice [this invoice])
