@@ -10,7 +10,7 @@
   (:import [java.util UUID]))
 
 (def ^:const test-config
-  {:api-key "STRIPE_TEST_API_KEY"})
+  {:api-key (System/getenv "STRIPE_TEST_API_KEY")})
 
 (def ^:const test-customer-data {:description "customer for someone@example.com"})
 (def ^:const non-existing-customer-id "cus_random-text")
