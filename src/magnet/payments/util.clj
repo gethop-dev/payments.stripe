@@ -53,6 +53,9 @@
               (and idempotent-post-reqs? (= :post (:method req-args)))
               (assoc-in [:headers "Idempotency-Key"] (str (UUID/randomUUID)))
 
+              (:api-version req-args)
+              (assoc-in [:headers "Stripe-Version"] (:api-version req-args))
+
               true
               (assoc :oauth-token api-key
                      :timeout timeout))]

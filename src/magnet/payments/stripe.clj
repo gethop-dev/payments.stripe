@@ -11,6 +11,7 @@
             [magnet.payments.stripe.checkout]
             [magnet.payments.stripe.core :as core]
             [magnet.payments.stripe.customer]
+            [magnet.payments.stripe.ephemeral-key]
             [magnet.payments.stripe.event]
             [magnet.payments.stripe.invoice]
             [magnet.payments.stripe.payment-intent]

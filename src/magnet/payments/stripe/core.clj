@@ -61,7 +61,7 @@
           (s/valid? ::stripe-record stripe-record)
           (s/valid? ::endpoint-definition endpoint-definition)
           (s/valid? ::endpoint-data endpoint-data))]}
-  (let [{:keys [entity path-params opt-req-args]} endpoint-data
+  (let [{:keys [entity path-params opt-req-args api-version]} endpoint-data
         {:keys [method url entity-key response]} endpoint-definition
         url (construct-url url path-params)
         form-params (or entity opt-req-args)]
@@ -69,5 +69,6 @@
         (util/do-request {:method method
                           :url url
                           :form-params (when form-params
-                                         (walk/stringify-keys form-params))})
+                                         (walk/stringify-keys form-params))
+                          :api-version api-version})
         (construct-response response))))

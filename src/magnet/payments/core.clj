@@ -34,6 +34,9 @@
   (create-customer-tax-id [this customer-id tax-id])
   (delete-customer-tax-id [this customer-id tax-id]))
 
+(defprotocol EphemeralKeys
+  (create-ephemeral-key [this customer-id api-version]))
+
 (defprotocol Invoice
   (create-invoice [this invoice])
   (get-invoice [this invoice-id])

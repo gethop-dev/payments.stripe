@@ -126,6 +126,8 @@ This are the methods available to interact with the Stripe API. The mapping for 
       [(get-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/retrieve)
     * [(create-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/create)
     * [(delete-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/delete)
+  * Ephemeral Keys
+    * (create-ephemeral-key stripe-record {:customer customer-id} *OR* {:issuing_card issuing-card-id})
   * [Invoice](https://stripe.com/docs/api/invoices)
     * [(create-invoice stripe-record invoice)](https://stripe.com/docs/api/invoices/create)
     * [(get-invoice stripe-record invoice-id)](https://stripe.com/docs/api/invoices/retrieve)
