@@ -1,4 +1,4 @@
-(defproject magnet/payments.stripe "0.3.6-SNAPSHOT"
+(defproject magnet/payments.stripe "0.3.7-SNAPSHOT"
   :description "A Duct library for interacting with the Stripe API"
   :url "http://github.com/magnetcoop/payments.stripe"
   :license {:name "Mozilla Public License 2.0"
@@ -6,7 +6,7 @@
   :min-lein-version "2.9.0"
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [integrant "0.8.0"]
-                 [http-kit "2.3.0"]
+                 [http-kit "2.5.3"]
                  [diehard "0.9.4"]
                  [org.clojure/data.json "1.0.0"]
                  [com.stripe/stripe-java "19.23.0"]]

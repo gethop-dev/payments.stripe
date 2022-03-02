@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## [UNRELEASED]
+
+## 0.3.6 - 2022-03-02
+### Changed
+- **[BREAKING CHANGE]** Upgraded http-kit dependency to 2.5.3. This change bumps the minimum JVM version from 1.6 to 1.7!
+
 ## 0.3.5 - 2021-05-19
 ## Added
 - Add support for managing Tax IDs in Customer API
