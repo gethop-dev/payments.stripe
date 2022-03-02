@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file. This change
 
 ## [UNRELEASED]
 
+## 0.3.6 - 2022-03-02
 ### Changed
 - **[BREAKING CHANGE]** Upgraded http-kit dependency to 2.5.3. This change bumps the minimum JVM version from 1.6 to 1.7!
 
