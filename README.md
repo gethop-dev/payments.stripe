@@ -128,6 +128,8 @@ This are the methods available to interact with the Stripe API. The mapping for 
     * [(delete-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/delete)
   * Ephemeral Keys
     * (create-ephemeral-key stripe-record {:customer customer-id} *OR* {:issuing_card issuing-card-id})
+    
+    Does not have offical docs, but there are some examples in some of the guides, such as [this one.]( https://stripe.com/docs/payments/accept-a-payment?platform=react-native#react-native-add-server-endpoint)
   * [Invoice](https://stripe.com/docs/api/invoices)
     * [(create-invoice stripe-record invoice)](https://stripe.com/docs/api/invoices/create)
     * [(get-invoice stripe-record invoice-id)](https://stripe.com/docs/api/invoices/retrieve)
