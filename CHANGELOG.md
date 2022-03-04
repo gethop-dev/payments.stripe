@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. This change
 ## [UNRELEASED]
 
 ## 0.3.7 - 2022-03-04
-## Added
+### Added
 - Add support for Ephemeral Keys ([Pull request #13](https://github.com/magnetcoop/payments.stripe/pull/13))
 
 ## 0.3.6 - 2022-03-02
