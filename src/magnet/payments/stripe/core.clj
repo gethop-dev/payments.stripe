@@ -1,7 +1,6 @@
 (ns magnet.payments.stripe.core
   (:require [clojure.walk :as walk]
             [clojure.spec.alpha :as s]
-            [magnet.payments.core :as payments.core]
             [magnet.payments.util :as util]))
 
 (def ^:const stripe-api-url "https://api.stripe.com/")

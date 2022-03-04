@@ -4,8 +4,7 @@
 
 (ns magnet.payments.stripe.webhook
   (:require [magnet.payments.core :as core])
-  (:import [com.stripe.exception SignatureVerificationException]
-           [com.stripe.net Webhook$Signature]
+  (:import [com.stripe.net Webhook$Signature]
            [magnet.payments.stripe.core Stripe]))
 
 (defn verify-header [payload signature-header secret tolerance]

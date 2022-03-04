@@ -4,9 +4,7 @@
 
 (ns magnet.payments.stripe.customer
   (:require [magnet.payments.core :as core]
-            [magnet.payments.stripe.core :refer [execute]]
-            [magnet.payments.stripe.core]
-            [magnet.payments.util :as util])
+            [magnet.payments.stripe.core :refer [execute]])
   (:import [magnet.payments.stripe.core Stripe]))
 
 (def ^:const api-definition
