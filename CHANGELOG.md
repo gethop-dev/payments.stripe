@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. This change
 
 ## [0.3.7] - 2022-03-04
 ### Added
-- Add support for Ephemeral Keys ([Pull request #13](https://github.com/magnetcoop/payments.stripe/pull/13))
+- Add support for Ephemeral Keys ([Pull request #13](https://github.com/gethop-dev/payments.stripe/pull/13))
 
 ## [0.3.6] - 2022-03-02
 ### Changed
@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file. This change
 ## [0.3.5] - 2021-05-19
 ## Added
 - Add support for managing Tax IDs in Customer API
-- Add support for PaymentIntents API ([Pull Request #11](https://github.com/magnetcoop/payments.stripe/pull/11))
+- Add support for PaymentIntents API ([Pull Request #11](https://github.com/gethop-dev/payments.stripe/pull/11))
 
 ## [0.3.4] - 2020-07-28
 ## Added
