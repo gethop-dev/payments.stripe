@@ -1,6 +1,6 @@
 # dev.gethop/payments.stripe
-[![Build Status](https://api.travis-ci.com/magnetcoop/payments.stripe.svg?branch=master)](https://travis-ci.com/magnetcoop/payments.stripe)
-[![Clojars Project](https://img.shields.io/clojars/v/magnet/payments.stripe.svg)](https://clojars.org/magnet/payments.stripe)
+[![ci-cd](https://github.com/gethop-dev/payments.stripe/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/gethop-dev/payments.stripe/actions/workflows/ci-cd.yml)
+[![Clojars Project](https://img.shields.io/clojars/v/dev.gethop/payments.stripe.svg)](https://clojars.org/dev.gethop/payments.stripe)
 
 A [Duct](https://github.com/duct-framework/duct) library that provides an [Integrant](https://github.com/weavejester/integrant) key for interacting with the Stripe API.
 
@@ -13,7 +13,7 @@ A [Duct](https://github.com/duct-framework/duct) library that provides an [Integ
 
 ## Installation
 
-[![Clojars Project](https://clojars.org/magnet/payments.stripe/latest-version.svg)](https://clojars.org/magnet/payments.stripe)
+[![Clojars Project](https://clojars.org/dev.gethop/payments.stripe/latest-version.svg)](https://clojars.org/dev.gethop/payments.stripe)
 
 ## Usage
 
