@@ -1,6 +1,6 @@
-(defproject magnet/payments.stripe "0.3.8-SNAPSHOT"
+(defproject dev.gethop/payments.stripe "0.3.8-SNAPSHOT"
   :description "A Duct library for interacting with the Stripe API"
-  :url "http://github.com/magnetcoop/payments.stripe"
+  :url "http://github.com/gethop-dev/payments.stripe"
   :license {:name "Mozilla Public License 2.0"
             :url "https://www.mozilla.org/en-US/2.0/"}
   :min-lein-version "2.9.0"
@@ -22,6 +22,6 @@
              :profiles/dev {}
              :project/dev {:plugins [[jonase/eastwood "0.3.11"]
                                      [lein-cljfmt "0.6.7"]]}
-             :repl {:repl-options {:init-ns magnet.payments.stripe
+             :repl {:repl-options {:init-ns dev.gethop.payments.stripe
                                    :host "0.0.0.0"
                                    :port 4001}}})

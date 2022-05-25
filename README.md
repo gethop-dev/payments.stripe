@@ -1,4 +1,4 @@
-# magnet/payments.stripe
+# dev.gethop/payments.stripe
 [![Build Status](https://api.travis-ci.com/magnetcoop/payments.stripe.svg?branch=master)](https://travis-ci.com/magnetcoop/payments.stripe)
 [![Clojars Project](https://img.shields.io/clojars/v/magnet/payments.stripe.svg)](https://clojars.org/magnet/payments.stripe)
 
@@ -20,7 +20,7 @@ A [Duct](https://github.com/duct-framework/duct) library that provides an [Integ
 ### Configuration
 To use this library add the following key to your configuration:
 
-`:magnet.paymets/stripe`
+`:dev.gethop.paymets/stripe`
 
 This key expects a configuration map with one unique mandatory key, plus another three optional ones.
 These are the mandatory keys:
@@ -39,13 +39,13 @@ Key initialization returns a `Stripe` record that can be used to perform the Str
 #### Configuration example
 Basic configuration:
 ```edn
-  :magnet.payments/stripe
+  :dev.gethop.payments/stripe
    {:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]}
 ```
 
 Configuration with custom request retry policy:
 ```edn
-  :magnet.payments/stripe
+  :dev.gethop.payments/stripe
    {:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]
     :timeout 1000
     :max-retries 3
@@ -59,8 +59,8 @@ If you are using the library as part of a [Duct](https://github.com/duct-framewo
 First we require the relevant namespaces:
 
 ```clj
-user> (require '[integrant.core :as ig]
-               '[magnet.payments.core :as core])
+user> (require '[dev.gethop.payments.core :as core]
+               '[integrant.core :as ig])
 nil
 user>
 ```
@@ -73,10 +73,10 @@ user> (def config {:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQa
 user>
 ```
 
-Now that we have all pieces in place, we can initialize the `:magnet.payments/stripe` Integrant key to get a `Stripe` record. As we are doing all this from the REPL, we have to manually require `magnet.payments.stripe` namespace, where the `init-key` multimethod for that key is defined (this is not needed when Duct takes care of initializing the key as part of the application start up):
+Now that we have all pieces in place, we can initialize the `:dev.gethop.payments/stripe` Integrant key to get a `Stripe` record. As we are doing all this from the REPL, we have to manually require `dev.gethop.payments.stripe` namespace, where the `init-key` multimethod for that key is defined (this is not needed when Duct takes care of initializing the key as part of the application start up):
 
 ``` clj
-user> (require '[magnet.payments.stripe :as stripe])
+user> (require '[dev.gethop.payments.stripe :as stripe])
 nil
 user>
 ```
@@ -86,16 +86,16 @@ And we finally initialize the key with the configuration defined above, to get o
 ``` clj
 user> (def stripe-record (->
                        config
-                       (->> (ig/init-key :magnet.payments/stripe))))
+                       (->> (ig/init-key :dev.gethop.payments/stripe))))
 #'user/stripe-record
 user> stripe-record
-#magnet.payments.stripe.Stripe{:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]
-                               :timeout 2000,
-                               :max-retries 10,
-                               :backoff-ms [500 1000 2.0]}
+#dev.gethop.payments.stripe.Stripe{:api-key #duct/env ["STRIPE_API_KEY" Str :or "pk_test_TYooMQauvdEDq54NiTphI7jx"]
+                                   :timeout 2000,
+                                   :max-retries 10,
+                                   :backoff-ms [500 1000 2.0]}
 user>
 ```
-Now that we have our `Stripe` record, we are ready to use the methods defined by the protocols defined in `magnet.payments.core` namespace.
+Now that we have our `Stripe` record, we are ready to use the methods defined by the protocols defined in `dev.gethop.payments.core` namespace.
 
 ### Available methods
 
