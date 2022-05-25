@@ -3,7 +3,7 @@
   :url "http://github.com/gethop-dev/payments.stripe"
   :license {:name "Mozilla Public License 2.0"
             :url "https://www.mozilla.org/en-US/2.0/"}
-  :min-lein-version "2.9.0"
+  :min-lein-version "2.9.8"
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [integrant "0.8.0"]
                  [http-kit "2.5.3"]
@@ -20,8 +20,8 @@
                                       :sign-releases false}]]
   :profiles {:dev [:project/dev :profiles/dev]
              :profiles/dev {}
-             :project/dev {:plugins [[jonase/eastwood "0.3.11"]
-                                     [lein-cljfmt "0.6.7"]]}
+             :project/dev {:plugins [[jonase/eastwood "1.2.3"]
+                                     [lein-cljfmt "0.8.0"]]}
              :repl {:repl-options {:init-ns dev.gethop.payments.stripe
                                    :host "0.0.0.0"
                                    :port 4001}}})
