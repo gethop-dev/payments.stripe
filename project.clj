@@ -1,4 +1,4 @@
-(defproject dev.gethop/payments.stripe "0.3.8-SNAPSHOT"
+(defproject dev.gethop/payments.stripe "0.3.8"
   :description "A Duct library for interacting with the Stripe API"
   :url "http://github.com/gethop-dev/payments.stripe"
   :license {:name "Mozilla Public License 2.0"
