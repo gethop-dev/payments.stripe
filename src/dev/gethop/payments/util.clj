@@ -22,7 +22,7 @@
   attempting to fulfill the request."
   502)
 
-(defn- fallback [value exception]
+(defn- fallback [_ exception]
   (let [status (condp instance? exception
                  ;; Socket layer related exceptions
                  java.net.UnknownHostException :unknown-host
@@ -61,11 +61,11 @@
                      :timeout timeout))]
     (dh/with-retry {:policy (retry-policy max-retries backoff-ms)
                     :fallback fallback}
-      (let [{:keys [status body error] :as resp} @(http/request req)]
+      (let [{:keys [status body error]} @(http/request req)]
         (when error
           (throw error))
         (try
           {:status status
            :body (json/read-str body :key-fn keyword :eof-error? false)}
-          (catch Exception e
+          (catch Exception _
             {:status bad-gateway}))))))

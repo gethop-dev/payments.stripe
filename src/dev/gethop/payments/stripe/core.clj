@@ -3,8 +3,8 @@
 ;; file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 (ns dev.gethop.payments.stripe.core
-  (:require [clojure.walk :as walk]
-            [clojure.spec.alpha :as s]
+  (:require [clojure.spec.alpha :as s]
+            [clojure.walk :as walk]
             [dev.gethop.payments.util :as util]))
 
 (def ^:const stripe-api-url "https://api.stripe.com/")
@@ -65,7 +65,7 @@
           (s/valid? ::endpoint-definition endpoint-definition)
           (s/valid? ::endpoint-data endpoint-data))]}
   (let [{:keys [entity path-params opt-req-args api-version]} endpoint-data
-        {:keys [method url entity-key response]} endpoint-definition
+        {:keys [method url response]} endpoint-definition
         url (construct-url url path-params)
         form-params (or entity opt-req-args)]
     (-> stripe-record

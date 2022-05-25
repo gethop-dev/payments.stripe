@@ -5,8 +5,8 @@
 (ns dev.gethop.payments.stripe.ephemeral-key-test
   (:require
    [clojure.test :refer [deftest is testing]]
-   [integrant.core :as ig]
-   [dev.gethop.payments.core :as core]))
+   [dev.gethop.payments.core :as core]
+   [integrant.core :as ig]))
 
 (def ^:const test-config
   {:api-key (System/getenv "STRIPE_TEST_API_KEY")

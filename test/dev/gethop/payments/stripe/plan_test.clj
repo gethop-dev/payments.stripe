@@ -4,9 +4,9 @@
 
 (ns dev.gethop.payments.stripe.plan-test
   (:require [clojure.test :refer :all]
-            [integrant.core :as ig]
             [dev.gethop.payments.core :as core]
-            [dev.gethop.payments.stripe])
+            [dev.gethop.payments.stripe]
+            [integrant.core :as ig])
   (:import [java.util UUID]))
 
 (def ^:const test-config

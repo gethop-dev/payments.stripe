@@ -3,9 +3,9 @@
             [dev.gethop.payments.core :as core]
             [dev.gethop.payments.stripe]
             [integrant.core :as ig])
-  (:import [java.util UUID]
-           [java.time Instant]
-           [java.time.temporal ChronoUnit]))
+  (:import
+   [java.time Instant]
+   [java.time.temporal ChronoUnit]))
 
 (def ^:const test-config
   {:api-key (System/getenv "STRIPE_TEST_API_KEY")})
@@ -65,7 +65,7 @@
   (let [payment-adapter (ig/init-key :dev.gethop.payments/stripe test-config)
         subscription (create-subscription)
         subscription-item-id (-> subscription :items :data first :id)
-        usage-records (repeat 2 (create-test-usage-record payment-adapter subscription-item-id))]
+        _ (repeat 2 (create-test-usage-record payment-adapter subscription-item-id))]
     (testing "Get summaries successfully"
       (let [result (core/get-usage-record-summaries payment-adapter subscription-item-id {})]
         (is (:success? result))

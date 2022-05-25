@@ -4,9 +4,8 @@
 
 (ns dev.gethop.payments.stripe.webhook-test
   (:require [clojure.test :refer :all]
-            [integrant.core :as ig]
             [dev.gethop.payments.core :as core]
-            [dev.gethop.payments.stripe.webhook :as sut])
+            [integrant.core :as ig])
   (:import [com.stripe.net Webhook$Util]))
 
 (defn rand-str [len]

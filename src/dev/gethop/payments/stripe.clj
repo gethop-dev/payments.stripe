@@ -3,8 +3,7 @@
 ;; file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 (ns dev.gethop.payments.stripe
-  (:require [integrant.core :as ig]
-            [dev.gethop.payments.stripe.balance]
+  (:require [dev.gethop.payments.stripe.balance]
             [dev.gethop.payments.stripe.balance-transaction]
             [dev.gethop.payments.stripe.card]
             [dev.gethop.payments.stripe.charge]
@@ -20,7 +19,8 @@
             [dev.gethop.payments.stripe.product]
             [dev.gethop.payments.stripe.subscription]
             [dev.gethop.payments.stripe.usage-record]
-            [dev.gethop.payments.stripe.webhook]))
+            [dev.gethop.payments.stripe.webhook]
+            [integrant.core :as ig]))
 
 (def ^:const default-timeout
   "Default timeout value for an connection attempt with Stripe API."

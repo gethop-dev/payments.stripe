@@ -1,9 +1,8 @@
 (ns dev.gethop.payments.stripe.payment-method-test
   (:require [clojure.test :refer :all]
-            [integrant.core :as ig]
             [dev.gethop.payments.core :as core]
-            [dev.gethop.payments.stripe])
-  (:import [java.util UUID]))
+            [dev.gethop.payments.stripe]
+            [integrant.core :as ig]))
 
 (def ^:const test-config
   {:api-key (System/getenv "STRIPE_TEST_API_KEY")})
@@ -60,12 +59,12 @@
 (deftest ^:integration get-customer-payment-methods
   (let [payment-adapter (ig/init-key :dev.gethop.payments/stripe test-config)
         customer (create-test-customer)
-        payment-method (core/attach-payment-method payment-adapter test-payment-method-id (:id customer))]
+        _ (core/attach-payment-method payment-adapter test-payment-method-id (:id customer))]
     (testing "Get successfully payment methods"
       (let [result (core/get-customer-payment-methods payment-adapter (:id customer) "card" {})]
         (is (:success? result))
         (is (and (vector? (:payment-methods result))
-                 (not (empty? (:payment-methods result)))))))
+                 (seq (:payment-methods result))))))
     (testing "Get payment methods for non existing customer"
       (let [result (core/get-customer-payment-methods payment-adapter invalid-customer-id "card" {})]
         (is (not (:success? result)))
