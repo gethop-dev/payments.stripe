@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file. This change
 
 ## [UNRELEASED]
 
+## [0.3.8] - 2022-05-25
+### Changed
+- Moving the repository to [gethop-dev](https://github.com/gethop-dev) organization
+- CI/CD solution switch from [TravisCI](https://travis-ci.org/) to [GitHub Actions](Ihttps://github.com/features/actions)
+- `lein`, `cljfmt` and `eastwood` dependencies bump
+- This Changelog file update
+
+### Added
+- Source code linting using [clj-kondo](https://github.com/clj-kondo/clj-kondo)
+
 ## [0.3.7] - 2022-03-04
 ### Added
 - Add support for Ephemeral Keys ([Pull request #13](https://github.com/gethop-dev/payments.stripe/pull/13))
@@ -55,7 +65,8 @@ All notable changes to this project will be documented in this file. This change
 ### Added
 - Initial version
 
-[UNRELEASED]:  https://github.com/gethop-dev/payments.stripe/compare/0.3.7...HEAD
+[UNRELEASED]:  https://github.com/gethop-dev/payments.stripe/compare/0.3.8...HEAD
+[0.3.8]: https://github.com/gethop-dev/payments.stripe/releases/tag/0.3.8
 [0.3.7]: https://github.com/gethop-dev/payments.stripe/releases/tag/0.3.7
 [0.3.6]: https://github.com/gethop-dev/payments.stripe/releases/tag/0.3.6
 [0.3.5]: https://github.com/gethop-dev/payments.stripe/releases/tag/0.3.5
