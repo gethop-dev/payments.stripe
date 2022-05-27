@@ -1,4 +1,4 @@
-# dev.gethop/payments.stripe
+# payments.stripe
 [![ci-cd](https://github.com/gethop-dev/payments.stripe/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/gethop-dev/payments.stripe/actions/workflows/ci-cd.yml)
 [![Clojars Project](https://img.shields.io/clojars/v/dev.gethop/payments.stripe.svg)](https://clojars.org/dev.gethop/payments.stripe)
 
