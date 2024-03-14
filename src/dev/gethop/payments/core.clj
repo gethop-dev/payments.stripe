@@ -44,6 +44,19 @@
   (get-upcoming-invoice [this customer-id opt-args])
   (update-invoice [this invoice-id invoice]))
 
+(defprotocol InvoiceItems
+  (create-invoice-item [this invoice-item])
+  (update-invoice-item [this invoice-item-id invoice-item])
+  (get-invoice-item [this invoice-item-id])
+  (get-all-invoice-items [this opt-args])
+  (delete-invoice-item [this invoice-item-id]))
+
+(defprotocol Price
+  (create-price [this price])
+  (update-price [this price-id price])
+  (get-price [this price-id])
+  (get-all-prices [this opt-args]))
+
 (defprotocol Product
   (create-product [this product])
   (get-product [this product-id])
