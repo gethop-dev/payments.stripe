@@ -6,22 +6,24 @@
 (def ^:const ^:private url-path "/invoiceitems")
 (def ^:const ^:private response-path [:invoiceitems :body])
 
+(defn- url-fn [id] (str url-path "/" id))
+
 (def ^:const api-definition
   {:create {:method :post
             :url url-path
             :response response-path}
    :get {:method :get
-         :url #(str url-path "/" %)
+         :url url-fn
          :response response-path}
    :get-all {:method :get
              :url url-path
              :response response-path}
    :update {:method :post
-            :url #(str url-path "/" %)
-            :response [:invoice :body]}
+            :url url-fn
+            :response response-path}
    :delete {:method :delete
-            :url #(str url-path "/" %)
-            :response [:invoice :body]}})
+            :url url-fn
+            :response response-path}})
 
 (extend-protocol core/InvoiceItems
   Stripe
