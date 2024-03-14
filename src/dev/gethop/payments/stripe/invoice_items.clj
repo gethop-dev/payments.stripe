@@ -22,7 +22,8 @@
    :delete {:method :delete
             :url #(str url-path "/" %)
             :response [:invoice :body]}})
-(extend-protocol core/Invoice
+
+(extend-protocol core/InvoiceItems
   Stripe
   (create-invoice-item [this invoice-item]
     (execute this (:create api-definition) {:entity invoice-item}))
@@ -34,12 +35,4 @@
   (get-all-invoice-items [this opt-args]
     (execute this (:get-all api-definition) {:opt-req-args opt-args}))
   (delete-invoice-item [this invoice-item-id]
-    (execute this (:delete api-definition) {:path-params [invoice-item-id]}))
-  #_(get-all-invoices [this opt-args]
-                      (execute this (:get-all api-definition) {:opt-req-args opt-args}))
-  #_(get-upcoming-invoice [this customer-id opt-args]
-                          (execute this (:get-by api-definition) {:path-params [customer-id]
-                                                                  :opt-req-args opt-args}))
-  #_(update-invoice [this invoice-id invoice]
-                    (execute this (:update api-definition) {:entity invoice
-                                                            :path-params [invoice-id]})))
+    (execute this (:delete api-definition) {:path-params [invoice-item-id]})))
