@@ -29,7 +29,7 @@
   Stripe
   (create-invoice-item [this invoice-item]
     (execute this (:create api-definition) {:entity invoice-item}))
-  (update-invoice-items [this invoice-item-id invoice-item]
+  (update-invoice-item [this invoice-item-id invoice-item]
     (execute this (:update api-definition) {:entity invoice-item
                                             :path-params [invoice-item-id]}))
   (get-invoice-item [this invoice-item-id]
