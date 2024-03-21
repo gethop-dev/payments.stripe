@@ -17,7 +17,7 @@ jobs:
       CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
       STRIPE_TEST_API_KEY: ${{ secrets.STRIPE_TEST_API_KEY }}
       STRIPE_TEST_BT_ID: ${{ secrets.STRIPE_TEST_BT_ID }}
-      STRIPE_API_VERSION: ${{ env.STRIPE_API_VERSION }}
+      STRIPE_API_VERSION: ${{ vars.STRIPE_API_VERSION }}
 
     steps:
       - name: Checkout
