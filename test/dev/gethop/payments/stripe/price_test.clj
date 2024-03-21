@@ -33,7 +33,7 @@
   (let [payment-adapter (test-utils/init-payment-adapter)]
     (testing "Update price"
       (let [id (get-new-price-id payment-adapter)
-            {:keys [success? price] :as r} (core/update-price payment-adapter id {:active false})]
+            {:keys [success? price]} (core/update-price payment-adapter id {:active false})]
         (is success?)
         (is (map? price))
         (is (false? (:active price)))))
@@ -62,7 +62,7 @@
     (testing "Get all prices"
       (let [now (test-utils/now-unix-timestamp)
             id (get-new-price-id payment-adapter)
-            {success? :success? {:keys [data] :as price} :price :as r}
+            {success? :success? {:keys [data] :as price} :price}
             (core/get-all-prices payment-adapter {:created {:gte now}})]
         (is success?)
         (is (map? price))
