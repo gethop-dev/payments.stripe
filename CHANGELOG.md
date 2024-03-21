@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file. This change
 
 ## [UNRELEASED]
 
+## [0.3.9] - 2024-03-21
+### Added
+- Add support for Price and InvoiceItem APIs ([Pull request #15](https://github.com/gethop-dev/payments.stripe/pull/15))
+
+### Changed
+- Dependencies bump
+
 ## [0.3.8] - 2022-05-25
 ### Changed
 - Moving the repository to [gethop-dev](https://github.com/gethop-dev) organization
