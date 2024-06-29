@@ -8,6 +8,7 @@
             [dev.gethop.payments.stripe.card]
             [dev.gethop.payments.stripe.charge]
             [dev.gethop.payments.stripe.checkout]
+            [dev.gethop.payments.stripe.coupons]
             [dev.gethop.payments.stripe.core :as core]
             [dev.gethop.payments.stripe.customer]
             [dev.gethop.payments.stripe.ephemeral-key]

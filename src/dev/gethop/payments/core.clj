@@ -34,6 +34,13 @@
   (create-customer-tax-id [this customer-id tax-id])
   (delete-customer-tax-id [this customer-id tax-id]))
 
+(defprotocol Coupons
+  (create-coupon [this coupon])
+  (update-coupon [this coupon-id coupon])
+  (get-coupon [this coupon-id])
+  (get-all-coupons [this opt-args])
+  (delete-coupon [this coupon-id]))
+
 (defprotocol EphemeralKeys
   (create-ephemeral-key [this customer-id api-version]))
 
