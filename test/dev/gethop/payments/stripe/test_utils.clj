@@ -26,5 +26,13 @@
       :price
       :id))
 
+(defn create-coupon+get-id [payment-adapter]
+  (-> (core/create-coupon payment-adapter {:duration "repeating"
+                                           :duration_in_months 3
+                                           :name "Test coupon"
+                                           :percent_off 20})
+      :coupon
+      :id))
+
 (defn now-unix-timestamp []
   (int (/ (System/currentTimeMillis) 1000)))
