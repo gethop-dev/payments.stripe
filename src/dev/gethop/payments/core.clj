@@ -34,6 +34,13 @@
   (create-customer-tax-id [this customer-id tax-id])
   (delete-customer-tax-id [this customer-id tax-id]))
 
+(defprotocol Coupons
+  (create-coupon [this coupon])
+  (update-coupon [this coupon-id coupon])
+  (get-coupon [this coupon-id])
+  (get-all-coupons [this opt-args])
+  (delete-coupon [this coupon-id]))
+
 (defprotocol EphemeralKeys
   (create-ephemeral-key [this customer-id api-version]))
 
@@ -63,6 +70,12 @@
   (get-all-products [this opt-args])
   (update-product [this product-id product])
   (delete-product [this product-id]))
+
+(defprotocol PromotionCode
+  (create-promotion-code [this promotion-code])
+  (update-promotion-code [this promotion-code-id promotion-code])
+  (get-promotion-code [this promotion-code-id])
+  (get-all-promotion-codes [this opt-args]))
 
 (defprotocol Plans
   (create-plan [this plan])
