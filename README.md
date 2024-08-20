@@ -181,7 +181,7 @@ All the responses will include a `:success?` key. When `:success?` is `false`, `
 
 ## License
 
-Copyright (c) 2022 Magnet S. Coop
+Copyright (c) 2024 Biotz, SL.
 
 This Source Code Form is subject to the terms of the Mozilla Public License,
 v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
