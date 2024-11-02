@@ -122,3 +122,9 @@
   (confirm-payment-intent [this payment-intent-id opt-args])
   (capture-payment-intent [this payment-intent-id opt-args])
   (cancel-payment-intent [this payment-intent-id opt-args]))
+
+(defprotocol TaxRate
+  (create-tax-rate [this tax-rate])
+  (update-tax-rate [this tax-rate-id tax-rate])
+  (get-tax-rate [this tax-rate-id])
+  (get-all-tax-rates [this opt-args]))
