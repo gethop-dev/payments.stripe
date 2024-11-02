@@ -92,8 +92,12 @@
   (cancel-subscription [this subscription-id opt-args]))
 
 (defprotocol PaymentMethod
+  (create-payment-method [this payment-method])
+  (update-payment-method [this payment-method-id payment-method])
+  (get-customer-payment-method [this customer-id payment-method-id])
   (get-payment-method [this payment-method-id])
   (get-customer-payment-methods [this customer-id payment-method-type opt-args])
+  (get-payment-methods [this opt-args])
   (attach-payment-method [this payment-method-id customer-id])
   (detach-payment-method [this payment-method-id]))
 
