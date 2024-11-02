@@ -8,8 +8,8 @@
             [dev.gethop.payments.stripe.card]
             [dev.gethop.payments.stripe.charge]
             [dev.gethop.payments.stripe.checkout]
-            [dev.gethop.payments.stripe.coupons]
             [dev.gethop.payments.stripe.core :as core]
+            [dev.gethop.payments.stripe.coupons]
             [dev.gethop.payments.stripe.customer]
             [dev.gethop.payments.stripe.ephemeral-key]
             [dev.gethop.payments.stripe.event]
@@ -22,6 +22,7 @@
             [dev.gethop.payments.stripe.product]
             [dev.gethop.payments.stripe.promotion-code]
             [dev.gethop.payments.stripe.subscription]
+            [dev.gethop.payments.stripe.taxt-rate]
             [dev.gethop.payments.stripe.usage-record]
             [dev.gethop.payments.stripe.webhook]
             [integrant.core :as ig]))
