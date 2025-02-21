@@ -6,7 +6,7 @@
    [dev.gethop.payments.stripe]
    [dev.gethop.payments.stripe.test-utils :as test-utils]))
 
-(defn- create-tax-rate+get-id [payment-adapter] 
+(defn- create-tax-rate+get-id [payment-adapter]
   (-> (core/create-tax-rate payment-adapter {:display_name "VAT test"
                                              :inclusive false
                                              :percentage 15
@@ -14,12 +14,12 @@
       :tax-rates
       :id))
 
-(defn- assert-valid-tax-rate [tax-rate] 
+(defn- assert-valid-tax-rate [tax-rate]
   (is (map? tax-rate))
   (is (= (:object tax-rate) "tax_rate"))
   (is (str/starts-with? (:id tax-rate) "txr_")))
 
-(defn- assert-success-response [{:keys [success?]}] 
+(defn- assert-success-response [{:keys [success?]}]
   (is success?))
 
 (deftest ^:integration create-tax-rate
