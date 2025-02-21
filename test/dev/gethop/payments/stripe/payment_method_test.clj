@@ -1,3 +1,7 @@
+;; This Source Code Form is subject to the terms of the Mozilla Public
+;; License, v. 2.0. If a copy of the MPL was not distributed with this
+;; file, You can obtain one at http://mozilla.org/MPL/2.0/
+
 (ns dev.gethop.payments.stripe.payment-method-test
   (:require [clojure.test :refer :all]
             [dev.gethop.payments.core :as core]
@@ -165,4 +169,3 @@
       (let [{:keys [success? reason]} (core/get-payment-methods payment-adapter {:type "card_typo"})]
         (is (not success?))
         (is (= reason :bad-request))))))
-
