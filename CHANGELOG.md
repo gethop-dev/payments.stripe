@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file. This change
 
 ## [UNRELEASED]
 
+## [0.3.10] - 2025-02-21
+### Added
+- Add support for the Coupons and PromotionCode APIs ([Pull request #17])(https://github.com/gethop-dev/payments.stripe/pull/17))
+- Add support for missing PaymentMethods API methods ([Pull request #18])(https://github.com/gethop-dev/payments.stripe/pull/18))
+- Add support for Tax Rate API ([Pull request #19])(https://github.com/gethop-dev/payments.stripe/pull/19))
+
 ## [0.3.9] - 2024-03-21
 ### Added
 - Add support for Price and InvoiceItem APIs ([Pull request #15](https://github.com/gethop-dev/payments.stripe/pull/15))
