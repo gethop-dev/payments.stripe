@@ -131,7 +131,7 @@ This are the methods available to interact with the Stripe API. The mapping for 
     * [(get-all-customers stripe-record opt-args)](https://stripe.com/docs/api/customers/list)
     * [(update-customer stripe-record customer-id customer)](https://stripe.com/docs/api/customers/update)
     * [(delete-customer stripe-record customer-id)](https://stripe.com/docs/api/customers/delete)
-      [(get-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/retrieve)
+    * [(get-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/retrieve)
     * [(create-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/create)
     * [(delete-customer-tax-id stripe-record customer-id tax-id)](https://stripe.com/docs/api/customer_tax_ids/delete)
   * Ephemeral Keys
@@ -201,7 +201,7 @@ All the responses will include a `:success?` key. When `:success?` is `false`, `
 
 ## License
 
-Copyright (c) 2024 Biotz, SL.
+Copyright (c) 2025 Biotz, SL.
 
 This Source Code Form is subject to the terms of the Mozilla Public License,
 v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
