@@ -56,7 +56,7 @@
         (is (= :not-found (:reason result)))))
     (testing "Timestamp out of subscription period"
       (let [usage-record (assoc (random-usage-record) :timestamp (.getEpochSecond
-                                                                  (.minus (Instant/now) 30 (ChronoUnit/MINUTES))))
+                                                                  (.minus (Instant/now) 30 ChronoUnit/MINUTES)))
             result (core/create-usage-record payment-adapter subscription-item-id usage-record)]
         (is (not (:success? result)))
         (is (= :bad-request (:reason result)))))))
