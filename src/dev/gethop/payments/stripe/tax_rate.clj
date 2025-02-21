@@ -2,7 +2,7 @@
 ;; License, v. 2.0. If a copy of the MPL was not distributed with this
 ;; file, You can obtain one at http://mozilla.org/MPL/2.0/
 
-(ns dev.gethop.payments.stripe.taxt-rate
+(ns dev.gethop.payments.stripe.tax-rate
   (:require [dev.gethop.payments.core :as core]
             [dev.gethop.payments.stripe.core :refer [execute]])
   (:import [dev.gethop.payments.stripe.core Stripe]))

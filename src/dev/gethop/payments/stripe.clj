@@ -22,7 +22,7 @@
             [dev.gethop.payments.stripe.product]
             [dev.gethop.payments.stripe.promotion-code]
             [dev.gethop.payments.stripe.subscription]
-            [dev.gethop.payments.stripe.taxt-rate]
+            [dev.gethop.payments.stripe.tax-rate]
             [dev.gethop.payments.stripe.usage-record]
             [dev.gethop.payments.stripe.webhook]
             [integrant.core :as ig]))
